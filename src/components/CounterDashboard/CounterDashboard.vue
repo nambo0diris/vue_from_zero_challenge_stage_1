@@ -1,7 +1,13 @@
 <script setup lang="ts">
-import { ref, reactive, computed } from "vue"
+import { ref, reactive, computed, watch } from "vue"
 
 const count = ref(0)
+const savedCount = localStorage.getItem('count')
+if (savedCount) count.value = +savedCount
+watch(count, (val) => {
+    localStorage.setItem('count', String(val))
+})
+
 const setting = reactive({step: 1, min: 0, max: 13})
 const status = computed(() => {
     if (count.value <= setting.min) {
