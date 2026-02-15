@@ -7,7 +7,7 @@ export const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: '/', component: HomePage },
-    { path: '/login', component: LoginPage },
+    { path: '/login', name: "login", component: LoginPage },
     { path: '/dashboard', component: DashboardPage },
   ],
 })
